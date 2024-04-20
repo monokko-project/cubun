@@ -1,6 +1,6 @@
 import cv2
-from time import time
-
+# from time import time
+import time
 from camera.model.coca import Image2Text
 from camera.utils.camera import Camera
 from wsocket.client import Client
@@ -12,9 +12,9 @@ HOST = '192.168.40.102'
 PORT = 10000
 sclient = Client(HOST, PORT)
 
-start = time()
-interval_sec = 15
-
+start = time.time()
+interval_sec = 5
+sleep_time = 5
 
 """ 
 while True:
@@ -42,7 +42,9 @@ while True:
     sclient.send_image("out.jpg")
     # text = it.run("out.jpg")
     # print(text)
-    print(time() - start)
+    print(time.time() - start)
+
+    time.sleep(sleep_time)
 
 # a close - up view of a white wall . 
 # 231.3489875793457
