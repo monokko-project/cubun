@@ -35,6 +35,9 @@ class Client:
 
             # send frame data
             s.sendall(frame_data)
+            
 
-            byteData = s.recv(1024)
-            return byteData
+            caption = s.recv(1024)
+
+            trans_caption = s.recv(1024)
+            return caption, trans_caption
